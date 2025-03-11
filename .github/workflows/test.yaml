@@ -1,0 +1,22 @@
+name: 'Test GitHub Actions'
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allows manual triggering from GitHub Actions UI
+
+jobs:
+  test:
+    name: 'Run Test Job'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v4
+
+      - name: 'Print Hello Message'
+        run: echo "✅ Hello, GitHub Actions!"
+
+      - name: 'Check Runner Environment'
+        run: uname -a
